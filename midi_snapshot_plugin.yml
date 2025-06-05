@@ -1,0 +1,13 @@
+verbose: true
+
+midi:
+  snapshot:
+    cc:
+#      "1:57": "load:0"     # Channel 1, CC 22 → charger snapshot index 0
+#      "1:58": "load:1"     # Channel 1, CC 23 → charger snapshot index 1
+      "1:51": "previous"     # Channel 1, CC 22 → charger snapshot index 0
+      "1:52": "next"     # Channel 1, CC 23 → charger snapshot index 1
+    pc:
+      "1:51": "previous"      # Channel 1, Program Change 0 → snapshot 0
+      "1:52": "next"      # Channel 1, Program Change 1 → snapshot 1
+
