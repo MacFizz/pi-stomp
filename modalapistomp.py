@@ -30,6 +30,10 @@ import pistomp.testhost as Testhost
 import pistomp.hardwarefactory as Hardwarefactory
 import pistomp.handler as Handler
 
+# Import the plugin module directly
+#from midi_to_http import register_plugin
+from midi_to_http.midi_snapshot_plugin import register_plugin
+
 
 def main():
     sys.settrace
@@ -101,6 +105,9 @@ def main():
         # Load system info.  This can take a few seconds
         handler.system_info_load()
 
+        # Register the MIDI snapshot plugin
+        plugin = register_plugin(handler)
+
     elif args.host[0] == 'generic':
         # No specific plugin host specified, so use a generic handler
         # Encoders and LCD not mapped without specific purpose
@@ -144,7 +151,6 @@ def main():
         GPIO.cleanup()
         del handler
         logging.info("Completed cleanup")
-
 
 if __name__ == '__main__':
     main()
